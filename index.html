@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+        <title>Experience</title>
+
+        <style>
+            body
+            {
+                background-image: url("pictures/hdBg.jpg");
+                background-size: cover;   /* Scales image to cover the entire background */
+                background-position: center;   /* Centers the image */
+                background-attachment: fixed;
+            }
+           
+           .about-me
+            {
+                text-decoration: none;
+                text-align: center;
+                content: ' →';
+                
+            }
+            .arrow::before
+            {
+                content: ' →';
+            }
+           
+
+            a 
+            {
+                font-family: "Silkscreen", serif;
+                font-weight: 500;
+                font-style: normal;
+                font-size: 20px;
+                text-decoration: none;
+                color: black;
+                position: relative;
+                padding-bottom: 4px;
+             }
+
+        /* Create the underline effect */
+        a::after 
+        {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: black;
+            transition: width 0.3s ease-in-out;
+        }
+
+        /* Animate the underline on hover or tap */
+        a:hover::after, a:focus::after 
+        {
+            width: 100%;
+        }
+      
+            .h1
+            {
+                font-family: "Orbitron", serif;
+                font-size: 20px;
+                font-weight: <weight>;
+                font-style: normal; 
+                margin-top: 200px;
+                margin-bottom: -25px;
+                text-align: center;
+               
+            }
+            .h2
+            {
+                font-family: "Orbitron", serif;
+                font-size: 10px;
+                font-weight: 40;
+                font-style: normal;  
+                margin-top: 0%;
+                text-align: center;
+            }
+            
+
+        </style>
+    </head>
+
+    <body>
+        <div class="h1">
+             <h1>HI I AM KENJIE DE GUZMAN <br>BUT YOU CAN CALL ME JIE</h1> 
+            </div>
+        <div class="h2">   
+        <h2>I am a BSIT student. Major in Web and<br>Mobile Application Development</h2>
+     </div>
+      <div class="about-me"> <a href="aboutMe.html" class="arrow"> more about me</a></div>
+      
+      
+       
+    </body>
+</html>
