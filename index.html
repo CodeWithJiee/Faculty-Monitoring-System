@@ -1,98 +1,441 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
-        <title>Experience</title>
+<head>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <title>My Profile</title>
 
-        <style>
-            body
-            {
-                background-image: url("pictures/hdBg.jpg");
-                background-size: cover;   /* Scales image to cover the entire background */
-                background-position: center;   /* Centers the image */
-                background-attachment: fixed;
-            }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            position: relative;
+            margin-top: 150px;
+            padding-top: 60px;
+        }
+         html {
+        scroll-behavior: smooth;
+        }
+         #bgVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100vw;
+            min-height: 100vh;
+            width: auto;
+            height: auto;
+            z-index: -1;
+            object-fit: cover;
+        
+         }
+         .navbar {
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(20, 20, 20, 0.95);
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 40px;
+            display: flex;
+            height: 60px;
+            align-items: center;
+            gap: 30px;
+        }
+        .navbar li {
+            display: inline;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            font-family: "Orbitron", serif;
+            font-size: 1.1rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        .navbar a:hover, .navbar a:focus {
+            background: #444;
+        }
+
+            
+         .mainContent{
+            position: relative;
+            width: 90%;
+            max-width: 1000px;
+            text-align: center;
+            margin: 0 auto;
+         }
+         .mainText{         
+             font-family: "Orbitron", serif;
+             text-shadow: 2px 2px 8px #000;
+             color: white; 
+             animation: fadeIn 1.5s ease;
+         }
+
+         @keyframes fadeIn {
+             from { opacity: 0; transform: translateY(20px); }
+             to { opacity: 1; transform: translateY(0); }
+         }
+
+         .subText{
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             margin: 0 auto;
+             width: 90%;
+             max-width: 550px;
+         }
+
+         h1{
+             font-size: 50px;
+             margin-bottom: -5px;
+         }
+         p{
+             font-size: 20px;    
+         }
+
+         .moreInfo a{
+             font-size: 20px;
+             position: relative;
+             font-family: "Silkscreen", serif;
+             text-decoration: none;
+             color: white;
+             content: '→' ;   
+         }
+         .arrow::before{
+             content: '→';
+         }
            
-           .about-me
-            {
-                text-decoration: none;
-                text-align: center;
-                content: ' →';
-                
-            }
-            .arrow::before
-            {
-                content: ' →';
-            }
-           
 
-            a 
-            {
-                font-family: "Silkscreen", serif;
-                font-weight: 500;
-                font-style: normal;
-                font-size: 20px;
-                text-decoration: none;
-                color: black;
-                position: relative;
-                padding-bottom: 4px;
-             }
-
-        /* Create the underline effect */
-        a::after 
-        {
+         a::after{
             content: "";
             position: absolute;
             left: 0;
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: black;
+            background-color: white;
             transition: width 0.3s ease-in-out;
+         }
+
+         a:hover::after, a:focus::after{
+            width: 100%;
+         }
+        .personalInfo {
+            width: 90%;
+            max-width: 1000px;
+            margin-top: 16vw;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            align-items: center;
+            gap: 30px;
+            background: linear-gradient(90deg, rgba(30,30,30,0.85) 60%, rgba(60,60,60,0.7) 100%);
+            border-radius: 20px;
+            padding: 5vw 4vw;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+        }
+        .personalInfo img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .infoDetails {
+            color: white;
+            font-family: "Orbitron", serif;
+            text-align: left;
+            max-width: 100%;
+        }
+        .infoDetails h2 {
+            text-align: left;
+            margin-left: 0;
+            margin-top: 0;
+            font-size: 1.2rem;
+            word-break: break-word;
+            font-family: monospace;
+        }
+        .infoDetails h1{
+            margin-bottom: 20px;
+
         }
 
-        /* Animate the underline on hover or tap */
-        a:hover::after, a:focus::after 
-        {
-            width: 100%;
-        }
-      
-            .h1
-            {
-                font-family: "Orbitron", serif;
-                font-size: 20px;
-                font-weight: <weight>;
-                font-style: normal; 
-                margin-top: 200px;
-                margin-bottom: -25px;
-                text-align: center;
-               
+        /* Responsive: Stack columns and scale on small screens */
+        @media (max-width: 800px) {
+            .mainContent {
+                width: 98%;
+                max-width: 100vw;
             }
-            .h2
-            {
-                font-family: "Orbitron", serif;
-                font-size: 10px;
-                font-weight: 40;
-                font-style: normal;  
-                margin-top: 0%;
+            .personalInfo .contactInfo {
+                grid-template-columns: 1fr;
+                padding: 6vw 2vw;
+                gap: 20px;
+                height: auto;
+            }
+            .personalInfo img {
+                max-width: 220px;
+                height: auto;
+                margin: 0 auto;
+                display: block;
+            }
+            .infoDetails {
                 text-align: center;
+            }
+            .infoDetails h2 {
+                margin-left: 0;
+                text-align: center;
+            }
+            .subText {
+                width: 98%;
+                max-width: 100vw;
+            }
+        }
+            .contactInfo {
+                width: 90%;
+                max-width: 1000px;
+                margin-top: 7vw;
+                display: grid;
+                grid-template-columns: 1fr 1.2fr;
+                align-items: center;
+                gap: 30px;
+                background: linear-gradient(90deg, rgba(30,30,30,0.85) 60%, rgba(60,60,60,0.7) 100%);
+                border-radius: 20px;
+                padding: 5vw 4vw;
+                box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+            }
+            .contactInfo video {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+                border-radius: 10px;
+                display: block;
+                margin-top: 40px;
+            }
+            .contactDetails {
+                color: white;
+                font-family: "Orbitron", serif;
+                text-align: left;
+                max-width: 100%;
+            }
+            .contactDetails h2 {
+                text-align: left;
+                margin-left: 0;
+                margin-top: 0;
+                font-size: 1.2rem;
+                word-break: break-word;
+                font-family: monospace;
+            }
+            .contactDetails a:hover, .contactDetails a:focus {
+            background: #444;
+        }
+
+
+        @media (max-width: 800px) {
+            .contactInfo {
+                grid-template-columns: 1fr;
+                padding: 6vw 2vw;
+                gap: 20px;
+                height: auto;
+            }
+            .contactInfo video {
+                max-width: 220px;
+                height: auto;
+                margin: 0 auto;
+                display: block;
+            }
+            .contactDetails {
+                text-align: center;
+            }
+            .contactDetails h2 {
+                margin-left: 0;
+                text-align: center;
+            }
+
+        }
+        
+            .educationInfo {
+                width: 90%;
+                max-width: 1000px;
+                margin-top: 7vw;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                align-items: flex-start;
+                gap: 30px;
+                background: linear-gradient(90deg, rgba(30,30,30,0.85) 60%, rgba(60,60,60,0.7) 100%);
+                border-radius: 20px;
+                padding: 5vw 4vw;
+                box-shadow: 0 4px 32px rgba(0,0,0,0.2);
+            }
+            .educationCard {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background: rgba(40,40,40,0.7);
+                border-radius: 12px;
+                padding: 24px 12px;
+            }
+            .educationCard img {
+                width: 200px;
+                height: 200px;
+                object-fit: contain;
+                border-radius: 8px;
+                margin-bottom: 12px;
+            }
+            .educationCard .year {
+                color: #fff;
+                font-family: "Orbitron", serif;
+                font-size: 1rem;
+                margin-top: 8px;
+                text-align: center;
+            }
+
+            @media (max-width: 800px) {
+    .mainContent {
+        width: 98%;
+        max-width: 100vw;
+    }
+    .personalInfo .contactInfo {
+        grid-template-columns: 1fr;
+        padding: 6vw 2vw;
+        gap: 20px;
+        height: auto;
+    }
+    .personalInfo img {
+        max-width: 220px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .infoDetails {
+        text-align: center;
+    }
+    .infoDetails h2 {
+        margin-left: 0;
+        text-align: center;
+    }
+    .subText {
+        width: 98%;
+        max-width: 100vw;
+    }
+    .contactInfo {
+        grid-template-columns: 1fr;
+        padding: 6vw 2vw;
+        gap: 20px;
+        height: auto;
+    }
+    .contactInfo video {
+        max-width: 220px;
+        height: auto;
+        margin: 0 auto;
+        display: block;
+    }
+    .contactDetails {
+        text-align: center;
+    }
+    .contactDetails h2 {
+        margin-left: 0;
+        text-align: center;
+    }
+}
+
+            .mainContent,
+            .personalInfo,
+            .contactInfo,
+            .educationInfo {
+                margin-left: auto;
+                margin-right: auto;
             }
             
 
-        </style>
-    </head>
+     
+    </style>
 
-    <body>
-        <div class="h1">
-             <h1>HI I AM KENJIE DE GUZMAN <br>BUT YOU CAN CALL ME JIE</h1> 
-            </div>
-        <div class="h2">   
-        <h2>I am a BSIT student. Major in Web and<br>Mobile Application Development</h2>
+
+</head>
+<body>
+    <video autoplay muted loop playsinline id="bgVideo">
+        <source src="ownBg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+   <nav class="navbar">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#personalInfo">About</a></li>
+        <li><a href="#contactInfo">Contact</a></li>
+
+    </ul>
+</nav>
+    <div class="mainContent" id="mainContent">
+            
+            <div class="mainText">
+                <h1>Hi, I'm Kenjie De Guzman Software Developer in the making.</h1>           
+            
+            <!-- another div so that i can set a fixed with to the <p> to indent it -->
+                <div class="subText">
+                     <p>BSIT Student and Passionate About Building Apps That Solve Real Problems</p>
+                </div>
+            
+            <!-- div for my hyperlink -->
+                <div class="moreInfo">
+                    <a href="#personalInfo" class="arrow"> MORE ABOUT ME</a>
+                </div>
+            </div>         
      </div>
-      <div class="about-me"> <a href="aboutMe.html" class="arrow"> more about me</a></div>
-      
-      
-       
-    </body>
+
+     <div id="personalInfo" class="personalInfo">
+        <img src="portraitBg.png" alt="image">
+        <div class="infoDetails">
+            <h1>PERSONAL INFORMATION</h1>
+            <h2>Name: Kenjie De Guzman</h2>
+            <h2>Birtdate: March 12, 2005</h2>
+            <h2>Age: 20 years old</h2>
+            <h2>Birth of Place: Magumbali, Candaba, Pampanga</h2>
+
+        </div>
+     </div>   
+
+      <div id="contactInfo" class="contactInfo">
+        <!-- <img src="portraitBg.png" alt="image"> -->
+         <video autoplay muted loop playsinline id="contactLogo">
+        <source src="contactLogo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+        <div class="contactDetails">
+            <h1 style="margin-bottom: 20px;">CONTACT INFORMATION</h1>
+            <h2>Phone: 0915-032-1670</h2>
+            <h2>G-Mail: kenjie.deguzman.bsit@gmail.com</a></h2>
+            <h2> <a href="https://github.com/CodeWithJiee" style="text-decoration: none; color: white;">Github: github.com/CodeWithJiee</a></h2>
+            <h2> <a href="https://www.linkedin.com/in/kenjie-deguzman-bsit/" style="text-decoration: none; color: white;">LinkedIn: linkedin.com/in/kenjie-deguzman-bsit/</a></h2>
+          
+
+        </div>
+     </div>   
+
+    <div id="educationInfo" class="educationInfo">
+      <h1 style="color: white; text-align: center; font-family: 'Orbitron', serif; margin-bottom: 32px; width: 100%; grid-column: 1 / -1;">EDUCATIONAL BACKGROUND</h1>
+      <div class="educationCard">
+          <img src="elemLogo.png" alt="Elementary Logo">
+          <div class="year">Elementary<br>2010-2016</div>
+      </div>
+      <div class="educationCard">
+          <img src="highschool-logo.png" alt="High School Logo">
+          <div class="year">High School<br>2016-2022</div>
+      </div>
+      <div class="educationCard">
+          <img src="college-logo.png" alt="College Logo">
+          <div class="year">College<br>2022-Present</div>
+      </div>
+    </div>
+
+     
+     
+    
+    
+    
+</body>
 </html>
