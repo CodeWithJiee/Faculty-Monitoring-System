@@ -1,0 +1,10 @@
+{
+  "rules": {
+    "schedule": {
+      ".indexOn": ["day"],
+      ".read": true,
+      ".write": true
+    }
+
+  }
+}
